@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Alessandro Volta",
+    "dateOfBirth": "18. Februar 1745",
+    "dateOfDeath": "5. März 1827",
+    "shortDescription": "Alessandro Volta war ein italienischer Physiker, der die Batterie erfand, bekannt als die Voltasche Säule. Seine Arbeiten auf dem Gebiet der Elektrizität und des Elektromagnetismus legten den Grundstein für die Entwicklung moderner elektrischer Energiesysteme.",
+    "imageURL": "https://example.com/volta.jpg"
+  },
+  {
+    "name": "Georg Simon Ohm",
+    "dateOfBirth": "16. März 1789",
+    "dateOfDeath": "6. Juli 1854",
+    "shortDescription": "Georg Simon Ohm war ein deutscher Physiker, der das Ohmsche Gesetz formulierte, das die Beziehung zwischen Stromstärke, Spannung und Widerstand in einem elektrischen Stromkreis beschreibt. Seine Arbeit trug maßgeblich zum Verständnis des elektrischen Stroms bei.",
+    "imageURL": "https://example.com/ohm.jpg"
+  },
+  {
+    "name": "Michael Faraday",
+    "dateOfBirth": "22. September 1791",
+    "dateOfDeath": "25. August 1867",
+    "shortDescription": "Michael Faraday war ein britischer Wissenschaftler, der bedeutende Beiträge auf den Gebieten der Elektromagnetismus und Elektrochemie leistete. Er entdeckte die elektromagnetische Induktion und die Elektrolyse und legte damit die Grundlagen für die Entwicklung von Elektromotoren und Generatoren.",
+    "imageURL": "https://example.com/faraday.jpg"
+  },
+  {
+    "name": "James Clerk Maxwell",
+    "dateOfBirth": "13. Juni 1831",
+    "dateOfDeath": "5. November 1879",
+    "shortDescription": "James Clerk Maxwell war ein schottischer Physiker, der die klassische Theorie des Elektromagnetismus formulierte, bekannt als Maxwells Gleichungen. Seine Arbeiten vereinten Elektrizität, Magnetismus und Licht, und seine Entdeckungen legten den Grundstein für die Entwicklung der modernen Physik.",
+    "imageURL": "https://example.com/maxwell.jpg"
+  },
+  {
+    "name": "Nikola Tesla",
+    "dateOfBirth": "10. Juli 1856",
+    "dateOfDeath": "7. Januar 1943",
+    "shortDescription": "Nikola Tesla war ein serbisch-amerikanischer Erfinder, Elektroingenieur und Physiker. Er leistete zahlreiche bahnbrechende Beiträge auf dem Gebiet der Elektrotechnik, einschließlich der Entwicklung von Wechselstromsystemen und der Erfindung des Induktionsmotors.",
+    "imageURL": "/photos/Tesla_274x367.jpg"
+  },
+  {
+    "name": "Heinrich Hertz",
+    "dateOfBirth": "22. Februar 1857",
+    "dateOfDeath": "1. Januar 1894",
+    "shortDescription": "Heinrich Hertz war ein deutscher Physiker, der bahnbrechende Beiträge auf dem Gebiet des Elektromagnetismus geleistet hat. Er ist am besten bekannt für seine Experimente, die die Existenz von elektromagnetischen Wellen nachwiesen und den Weg für die Entwicklung von drahtlosen Kommunikationstechnologien ebneten. Hertz' Arbeit legte den Grundstein für die spätere Entwicklung von Radio-, Fernseh- und Radarsystemen.",
+    "imageURL": "https://example.com/hertz.jpg"
+  }
+]

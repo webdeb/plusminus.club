@@ -1,0 +1,14 @@
+{
+  "index": {
+    "type": "page",
+    "title": "Плюсминус клуб",
+    "display": "hidden",
+    "theme": {
+      "layout": "raw"
+    }
+  },
+  "electricity": {
+    "type": "page",
+    "title": "Электричество"
+  }
+}
