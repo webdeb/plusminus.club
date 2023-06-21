@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 function extractSizeParameters(string) {
-  const regex = /_(\d+)x(\d+)\.jpg$/;
+  const regex = /_(\d+)x(\d+)\.(jpg|png)$/;
   const match = string.match(regex);
 
   if (match) {

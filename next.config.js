@@ -1,4 +1,4 @@
-var nextra = require("nextra");
+import nextra from "nextra";
 
 const withNextra = nextra({
   theme: "nextra-theme-docs",
@@ -11,16 +11,16 @@ const withNextra = nextra({
   defaultShowCopyCode: true,
 });
 
-module.exports = withNextra({
+export default withNextra({
   reactStrictMode: true,
   eslint: {
     // Eslint behaves weirdly in this monorepo.
     ignoreDuringBuilds: true,
   },
-  i18n: {
-    locales: ["en", "ru", "de"],
-    defaultLocale: "en",
-  },
+  // i18n: {
+  //   // locales: ["en", "ru", "de"],
+  //   defaultLocale: "en",
+  // },
   redirects: () => [
     // {
     //   source: "/docs/docs-theme/built-ins/callout",

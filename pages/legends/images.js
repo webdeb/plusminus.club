@@ -1,0 +1,12 @@
+export { default as benjamin_img } from "./assets/benjamin-franklin_2404x2971.jpg";
+export { default as newton_img } from "./assets/newton_375x455.jpg";
+export { default as kelvin_img } from "./assets/kelvin_311x406.jpg";
+export { default as coulomb_img } from "./assets/coulomb_800x1034.png";
+export { default as volta_img } from "./assets/volta_390x480.jpg";
+export { default as ohm_img } from "./assets/ohm_337x428.jpg";
+export { default as faraday_img } from "./assets/faraday_2374x3000.jpg";
+export { default as joule_img } from "./assets/joule_330x395.jpg";
+export { default as maxwell_img } from "./assets/maxwell_819x1024.jpg";
+export { default as tesla_img } from "./assets/tesla_274x367.jpg";
+export { default as hertz_img } from "./assets/hertz_742x960.jpg";
+export { default as ampere_img } from "./assets/ampere_493x666.jpg";

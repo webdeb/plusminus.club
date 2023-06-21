@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+article.nextra-body-typesetting-article h1 {
+  text-align: left !important;
+}

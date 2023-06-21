@@ -1,72 +1,90 @@
 [
   {
+    "name": "Benjamin Franklin",
+    "dateOfBirth": "January 17, 1706",
+    "dateOfDeath": "April 17, 1790",
+    "shortDescription": "Benjamin Franklin was an American polymath who excelled in various fields including science, politics, writing, and diplomacy. He is best known for his experiments with electricity and his discovery of the lightning rod, as well as his significant contributions to the field of physics. Franklin's work in electricity laid the groundwork for our understanding of electrical phenomena and the development of practical applications. He was also a key figure in the American Revolution and played an important role in the drafting of the United States Constitution. Franklin's intellect, curiosity, and practical approach to problem-solving continue to inspire and influence diverse areas of study to this day.",
+    "imageURL": "/photos/benjamin-franklin_2404x2971.jpg",
+    "id": "benjamin-franklin"
+  },
+  {
     "name": "Isaac Newton",
     "dateOfBirth": "January 4, 1643",
     "dateOfDeath": "March 31, 1727",
     "shortDescription": "Isaac Newton was an English mathematician, physicist, and astronomer who is widely recognized as one of the most influential scientists in history. He formulated the laws of motion and universal gravitation, laying the foundation for classical mechanics. Newton's groundbreaking work, including his book 'Philosophiæ Naturalis Principia Mathematica,' revolutionized our understanding of the physical world and established him as a key figure in the scientific revolution.",
-    "imageURL": "/photos/newton_375x455.jpg"
+    "imageURL": "/photos/newton_375x455.jpg",
+    "id": "isaac-newton"
   },
   {
     "name": "William Thomson, 1st Baron Kelvin",
     "dateOfBirth": "June 26, 1824",
     "dateOfDeath": "December 17, 1907",
     "shortDescription": "William Thomson, 1st Baron Kelvin, was a Scottish physicist and engineer who made significant contributions to the fields of thermodynamics and electromagnetism. He is best known for introducing the Kelvin scale of absolute temperature and his work on the theory of heat. Kelvin also played a crucial role in the laying of the first transatlantic telegraph cable, which revolutionized global communication. His contributions to science and engineering had a profound impact on the advancement of technology and our understanding of the physical world.",
-    "imageURL": "/photos/kelvin_311x406.jpg"
+    "imageURL": "/photos/kelvin_311x406.jpg",
+    "id": "william-thomson-kelvin"
   },
   {
     "name": "Charles-Augustin de Coulomb",
     "dateOfBirth": "June 14, 1736",
     "dateOfDeath": "August 23, 1806",
     "shortDescription": "Charles-Augustin de Coulomb was a French physicist and engineer who made significant contributions to the fields of electromagnetism and mechanics. He is best known for his discovery of Coulomb's law, which describes the electrostatic interaction between electrically charged particles. Coulomb's work laid the foundation for the development of the theory of electromagnetism and had a profound impact on the field of physics.",
-    "imageURL": "/photos/coulomb_800x1034.png"
+    "imageURL": "/photos/coulomb_800x1034.png",
+    "id": "charles-augustin-de-coulomb"
   },
   {
     "name": "Alessandro Volta",
     "dateOfBirth": "February 18, 1745",
     "dateOfDeath": "March 5, 1827",
     "shortDescription": "Alessandro Volta was an Italian physicist who invented the battery, known as the Voltaic pile. His work in electricity and electromagnetism laid the foundation for the development of modern electrical power systems.",
-    "imageURL": "/photos/volta_390x480.jpg"
+    "imageURL": "/photos/volta_390x480.jpg",
+    "id": "alessandro-volta"
   },
   {
     "name": "Georg Simon Ohm",
     "dateOfBirth": "March 16, 1789",
     "dateOfDeath": "July 6, 1854",
     "shortDescription": "Georg Simon Ohm was a German physicist who formulated Ohm's Law, which describes the relationship between current, voltage, and resistance in an electrical circuit. His work significantly contributed to the understanding of electric current.",
-    "imageURL": "/photos/ohm_337x428.jpg"
+    "imageURL": "/photos/ohm_337x428.jpg",
+    "id": "georg-simon-ohm"
   },
   {
     "name": "Michael Faraday",
     "dateOfBirth": "September 22, 1791",
     "dateOfDeath": "August 25, 1867",
     "shortDescription": "Michael Faraday was a British scientist who made significant contributions to the fields of electromagnetism and electrochemistry. He discovered electromagnetic induction and electrolysis, laying the foundation for the development of electric motors and generators.",
-    "imageURL": "/photos/faraday_2374x3000.jpg"
+    "imageURL": "/photos/faraday_2374x3000.jpg",
+    "id": "michael-faraday"
   },
   {
     "name": "James Prescott Joule",
     "dateOfBirth": "December 24, 1818",
     "dateOfDeath": "October 11, 1889",
     "shortDescription": "James Prescott Joule was an English physicist and brewer who made significant contributions to the study of thermodynamics and the concept of energy conservation. He is best known for his experiments that established the relationship between mechanical work and heat, now known as the Joule's law. Joule's work laid the foundation for the theory of conservation of energy and helped establish the field of thermodynamics.",
-    "imageURL": "/photos/joule_330x395.jpg"
+    "imageURL": "/photos/joule_330x395.jpg",
+    "id": "james-prescott-joule"
   },
   {
     "name": "James Clerk Maxwell",
     "dateOfBirth": "June 13, 1831",
     "dateOfDeath": "November 5, 1879",
     "shortDescription": "James Clerk Maxwell was a Scottish physicist who formulated the classical theory of electromagnetism, known as Maxwell's equations. His work united electricity, magnetism, and light, and his discoveries paved the way for the development of modern physics.",
-    "imageURL": "/photos/maxwell_230x288.jpg"
+    "imageURL": "/photos/maxwell_230x288.jpg",
+    "id": "james-clerk-maxwell"
   },
   {
     "name": "Nikola Tesla",
     "dateOfBirth": "July 10, 1856",
     "dateOfDeath": "January 7, 1943",
     "shortDescription": "Nikola Tesla was a Serbian-American inventor, electrical engineer, and physicist. He made numerous groundbreaking contributions to the field of electrical engineering, including the development of alternating current (AC) systems and the invention of the induction motor.",
-    "imageURL": "/photos/tesla_274x367.jpg"
+    "imageURL": "/photos/tesla_274x367.jpg",
+    "id": "nikola-tesla"
   },
   {
     "name": "Heinrich Hertz",
     "dateOfBirth": "February 22, 1857",
     "dateOfDeath": "January 1, 1894",
     "shortDescription": "Heinrich Hertz was a German physicist who made groundbreaking contributions to the field of electromagnetism. He is best known for his experiments that proved the existence of electromagnetic waves, which paved the way for the development of wireless communication technologies. Hertz's work laid the foundation for the later development of radio, television, and radar systems.",
-    "imageURL": "/photos/hertz_147x186.jpg"
+    "imageURL": "/photos/hertz_147x186.jpg",
+    "id": "heinrich-hertz"
   }
 ]

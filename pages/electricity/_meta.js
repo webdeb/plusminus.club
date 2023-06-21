@@ -1,0 +1,15 @@
+export default {
+  "*": {
+    type: "doc",
+    theme: {
+      layout: "default",
+    },
+  },
+  index: {
+    title: "Intro",
+    theme: {
+      typesetting: "article",
+    },
+  },
+  resistor: "Resistor",
+};

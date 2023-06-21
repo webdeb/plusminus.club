@@ -2,6 +2,7 @@
   "name": "nextra-docs-template",
   "version": "0.0.1",
   "description": "Nextra docs template",
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -24,6 +25,7 @@
     "axios": "^1.4.0",
     "clsx": "^1.2.1",
     "framer-motion": "^10.12.16",
+    "git-url-parse": "^13.1.0",
     "next": "^13.0.6",
     "next-themes": "^0.2.1",
     "nextra": "latest",
@@ -33,6 +35,7 @@
   },
   "devDependencies": {
     "@types/node": "18.11.10",
+    "@types/react": "18.2.12",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.3.2",

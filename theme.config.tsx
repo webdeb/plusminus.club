@@ -10,7 +10,7 @@ const config: DocsThemeConfig = {
     prev: true,
   },
   project: {
-    link: "https://github.com/plusminusclub",
+    link: "https://github.com/webdeb/plusminus.club",
   },
   // chat: {
   //   link: "https://discord.com",
@@ -20,7 +20,8 @@ const config: DocsThemeConfig = {
     { locale: "ru", text: "Русский" },
     { locale: "de", text: "Deutsch" },
   ],
-  docsRepositoryBase: "https://github.com/shuding/nextra-docs-template",
+  docsRepositoryBase: "https://github.com/webdeb/plusminus.club",
+
   footer: {
     text: "© plusminus.club 2023",
   },
@@ -32,9 +33,26 @@ const config: DocsThemeConfig = {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta property="og:title" content="plusminus.club" />
       <meta property="og:description" content="Site about electicity" />
-      <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+      <link rel="icon" href="/favicon.png" type="image/png" />
     </>
   ),
+  sidebar: {
+    defaultMenuCollapseLevel: 1,
+  },
+  // toc: {
+  //   // title: (...args) => {
+  //   //   console.log({ args }, "title");
+  //   //   return "Heheh..";
+  //   // },
+  //   // extraContent: (...args) => {
+  //   //   console.log({ args }, "extraContent");
+  //   //   return null;
+  //   // },
+  //   // component: (...args) => {
+  //   //   console.log({ args });
+  //   //   return null;
+  //   // },
+  // },
 };
 
 const I18n_STRINGS = {
