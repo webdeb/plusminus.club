@@ -1,0 +1,95 @@
+import MathBlock from "@components/MathBlock";
+import Mdx from "@components/Mdx";
+import evalMdx from "@components/utils/evalMdx";
+
+# Capacitor
+
+A capacitor is an electronic component that stores and releases electrical energy. It consists of two conductive plates separated by a non-conductive material called a dielectric. The conductive plates can be made of metal, while the dielectric is typically an insulating material like ceramic, plastic, or electrolyte.
+
+When a voltage is applied across the capacitor, it charges up by accumulating electric charges on its plates. The positive charges accumulate on one plate, while the negative charges accumulate on the other plate. The dielectric material prevents direct electrical contact between the plates, but it allows an electric field to form between them.
+
+The amount of charge that a capacitor can store is determined by its capacitance, which is measured in Farads (F). The capacitance depends on factors such as the surface area of the plates, the distance between them, and the properties of the dielectric material. A larger surface area, closer plate distance, and higher permittivity of the dielectric material result in a higher capacitance.
+
+<MathBlock
+  description={
+    "The principal formula for capacitance (C) can be represented as:"
+  }
+  math="C=Q/V"
+  explanation={
+    <div>
+      where C represents the capacitance in Farads (F), Q is the charge stored
+      on the capacitor in Coulombs (C), and V is the voltage across the
+      capacitor in Volts (V).
+    </div>
+  }
+/>
+
+---
+
+## Configurations
+
+The above formula represents the capacitance ($\mathbf{C}$) based on the relation of charge ($\mathbf{Q}$) and voltage ($\mathbf{V}$). However, to calculate the capacitor based on its physical properties we have to look for different capacitor configurations and the corresponding formulas.
+
+Here are the different formulas for capacitance based on different capacitor configurations and scenarios:
+
+#### 1. Capacitance of a Parallel-Plate Capacitor with Vacuum:
+
+<MathBlock
+   math="C = ε₀*A/d"
+   description="The formula for the capacitance of a parallel-plate capacitor with a vacuum between the plates:"
+   explanation={<Mdx>{`Where:
+
+- (**C**) represents the capacitance of the capacitor,
+- (**ε₀**) is the permittivity of free space,
+- (**A**) is the area of the capacitor plates,
+- (**d**) is the distance between the plates.`}
+  </Mdx>}>
+
+</MathBlock>
+
+#### 2. Capacitance of a Parallel-Plate Capacitor with Dielectric Material:
+
+<MathBlock
+  explanation="Additionally to the formula above the (εᵣ) represents the permittivity of the dielectricum."
+  math="C=ε₀εᵣ*A/d"
+/>
+
+#### 3. Capacitance of a Spherical Capacitor:
+
+<MathBlock
+  explanation="Where R₁ and R₂ are the radii of the inner and outer spheres respectively"
+  math="C = 4π*ε₀εᵣ*R₁R₂/(R₁-R₂)"
+/>
+
+#### 4. Capacitance of a Cylindrical Capacitor:
+
+<MathBlock
+  math="C=2π*ε₀εᵣ*L/ln(b/a)"
+  explanation="Where L is the length of the cylinder, a and b are the radii of the inner and outer cylinders respectively."
+/>
+
+For example the capacitance of a Coaxial Cable can be calculated by applying the cable properties to the formula above. Where L is the length of the cable, a and b are the radii of the inner and outer conductors respectively.
+
+These formulas cover some of the most common capacitor configurations. Depending on the specific shape, arrangement, and dielectric used, the formulas may vary. It's important to consider the appropriate formula for the specific capacitor configuration you are working with.
+
+The relative permittivity **(εᵣ)** is a dimensionless quantity that indicates how well a dielectric material can store electric charge compared to a vacuum. It varies depending on the material used as the dielectric. See the next table for the different Dielectric materials and their permittivity value.
+
+## Dielectric materials and their permittivity
+
+| Material               | Relative Permittivity (εᵣ) |
+| ---------------------- | -------------------------- |
+| Vacuum                 | 1.0000                     |
+| Air                    | 1.0006                     |
+| Teflon                 | 2.1 - 2.3                  |
+| Paper                  | 2.5 - 3.5                  |
+| Glass                  | 4.5 - 8.5                  |
+| Bakelite               | 3.5 - 5.0                  |
+| Silicon                | 11.7 - 12.1                |
+| Aluminum Oxide (Al₂O₃) | 8.5 - 10.0                 |
+| Water                  | 78.4                       |
+| Ethanol                | 24.3                       |
+| Mineral Oil            | 2.0 - 2.3                  |
+| Silicone Oil           | 2.7 - 3.3                  |
+| Transformer Oil        | 2.2 - 2.5                  |
+| Vegetable Oil          | 2.0 - 3.0                  |
+| Synthetic Oil          | 2.0 - 4.0                  |

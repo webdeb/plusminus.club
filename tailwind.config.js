@@ -1,4 +1,5 @@
 import withMT from "@material-tailwind/react/utils/withMT";
+import forms from "@tailwindcss/forms";
 
 /** @type {import('tailwindcss').Config} */
 export default withMT({
@@ -6,6 +7,7 @@ export default withMT({
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "./theme.config.tsx",
   ],
   theme: {
@@ -17,5 +19,9 @@ export default withMT({
       },
     },
   },
-  plugins: [],
+  plugins: [
+    forms({
+      strategy: "class",
+    }),
+  ],
 });

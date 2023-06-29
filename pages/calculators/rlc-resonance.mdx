@@ -1,0 +1,44 @@
+---
+title: RLC circuit resonance calculator
+---
+
+import RLC from "@components/calculators/RLC";
+
+### RLC circuit calculator
+
+<RLC
+  initValues={{
+    inductance: "10 uH",
+    capacitance: "10 nF",
+    frequency: null,
+  }}
+/>
+
+---
+
+#### Explanation
+
+1. An RLC circuit consists of three main components: a resistor (R), an inductor (L), and a capacitor (C). These components are connected in series or parallel. The resonance frequency of an RLC circuit is the frequency at which the inductive and capacitive reactances cancel each other out, resulting in a purely resistive circuit.
+
+2. Determine the Resonance Frequency Formula:
+   The resonance frequency (f) of an RLC circuit can be calculated using the following formula:
+   f = 1 / (2π√(LC))
+   Where:
+
+   - f is the resonance frequency in Hertz (Hz).
+   - π is a mathematical constant, approximately equal to 3.14159.
+   - L is the inductance in Henrys (H).
+   - C is the capacitance in Farads (F).
+
+3. Gather Circuit Component Values:
+   Identify the values of the inductance (L) and capacitance (C) components in the RLC circuit. These values are usually provided in Henrys and Farads, respectively. If you don't have the values, you can measure them using appropriate instruments or refer to the circuit diagram and component specifications.
+
+4. Plug in Values and Calculate Resonance Frequency:
+   Substitute the known values of inductance (L) and capacitance (C) into the resonance frequency formula and calculate the resonance frequency (f). Make sure the units are consistent throughout the calculation.
+
+5. Interpret and Verify Results:
+   The calculated resonance frequency (f) represents the frequency at which the RLC circuit will exhibit resonance. At this frequency, the reactive components (inductor and capacitor) cancel each other out, resulting in a purely resistive circuit. You can verify the accuracy of your calculation by comparing it to experimental results or known values from reliable sources.
+
+Note: In some cases, an RLC circuit may have resistance (R) as well. This resistance affects the overall behavior of the circuit but does not directly impact the resonance frequency calculation.
+
+Remember to exercise caution while working with electrical circuits and use appropriate safety measures.

@@ -1,0 +1,39 @@
+import { useState } from "react";
+import clsx from "clsx";
+import { ReactCircuit } from "@components/react-circuit";
+
+export const BasicCircuit = ({ className }) => {
+  const [sim, setSim] = useState(null);
+  return (
+    <div className={clsx("flex flex-col items-center", className)}>
+      <ReactCircuit
+        onSimLoaded={setSim}
+        width={601}
+        editable={false}
+        height={300}
+        whiteBackground
+        ctz="CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgpABZsKBTAWjDACgBnETFcQq7NkJ8qokADMAhgBsODEABkFAfQDKbAG7cUNELl0odIqCZpUkYmEiXKAqmwBOevLrD9nu-SbDxFKgEpsAO56QsbYLsaQwdwYvG5Uhq7u0SFJepCekV7RAPbcIIS6VGak1DCQKBYFvNhsQA"
+      />
+    </div>
+  );
+};
+
+# Introduction to Electricity
+
+<BasicCircuit className="my-4" />
+
+Electricity is a fundamental force of nature that plays a crucial role in our modern world. It powers our homes, fuels our industries, and drives technological advancements across various fields. Understanding electricity is essential for comprehending the inner workings of countless devices and systems that surround us.
+
+At its core, electricity is the flow of electric charge. It encompasses the movement of electrons, which are tiny, negatively charged particles found in atoms. These charged particles are responsible for creating electric currents when set into motion. This movement can occur through various mediums, such as conductive materials like metals or even through the air.
+
+The study of electricity dates back centuries, with key milestones achieved by eminent scientists and inventors. In the 18th century, Benjamin Franklin conducted experiments with lightning and introduced the concept of positive and negative charges. His groundbreaking work laid the foundation for understanding the principles of electricity.
+
+Throughout the 19th century, notable figures like Michael Faraday and James Clerk Maxwell made significant contributions to the field. Faraday's experiments with electromagnetic induction led to the development of electric generators and motors, while Maxwell's equations provided a mathematical framework to describe the behavior of electric and magnetic fields.
+
+The discovery and understanding of electricity revolutionized society. It led to the invention of countless devices and systems that have transformed how we live, communicate, and work. From the humble light bulb to sophisticated electronics, electricity powers everything from the simplest household appliance to complex machinery in industries like manufacturing, transportation, and telecommunications.
+
+Electricity has become so integrated into our daily lives that we often take it for granted. When we flip a switch, plug in a device, or charge our smartphones, we seldom pause to consider the underlying science that enables these actions. However, understanding the principles of electricity can empower us to make informed decisions, improve energy efficiency, and contribute to the development of sustainable practices.
+
+In this guide, we will explore the fundamental concepts of electricity, delve into its practical applications, and examine the technologies that rely on it. We will cover topics such as electric circuits, voltage, current, resistance, power, and electrical safety. By gaining a deeper understanding of electricity, you will be equipped to navigate the electrical world with confidence and appreciate the immense impact it has on our modern society.
+
+So let us embark on a journey into the captivating realm of electricity, where invisible forces shape the world around us and illuminate the path to a brighter future.

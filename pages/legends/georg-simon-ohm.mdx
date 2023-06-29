@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ohm_img } from "./images";
+import MathBlock from "@components/MathBlock";
+import Mdx from "@components/Mdx";
+import { ohm_img } from "~/legends/images";
 
 # George Simon Ohm: The Pioneer of Electrical equations
 
@@ -24,15 +26,17 @@ Born on March 16, 1789, in Erlangen, Bavaria, George Simon Ohm displayed an apti
 
 Ohm's most significant contribution to science came in 1827 when he published his seminal work, "Die galvanische Kette, mathematisch bearbeitet" ("The Galvanic Circuit Investigated Mathematically"). In this publication, Ohm presented his groundbreaking law, now known as Ohm's Law, which states that the electric current passing through a conductor is directly proportional to the voltage applied across it and inversely proportional to the resistance of the conductor.
 
-Mathematically, Ohm's Law can be expressed as:
-
-$V = I*R$
-
+<MathBlock
+description="Mathematically, Ohm's Law can be expressed as:"
+explanation={<Mdx>{`
 Where:
 
-- V represents voltage (measured in volts)
-- I represents current (measured in amperes)
-- R represents resistance (measured in ohms)
+- **U** represents voltage (measured in volts)
+- **I** represents current (measured in amperes)
+- **R** represents resistance (measured in ohms)
+  `}</Mdx>}>
+  $I = \frac{U}{R} \thickspace\thickspace\thickspace\Leftrightarrow\thickspace\thickspace\thickspace U = I \cdot R \thickspace\thickspace\thickspace\Leftrightarrow\thickspace\thickspace\thickspace R = \frac{U}{I}$
+    </MathBlock>
 
 Ohm's Law forms the foundation for understanding and analyzing electrical circuits, allowing engineers and scientists to calculate the behavior of currents and voltages in various systems.
 

@@ -1,39 +1,76 @@
-import { useState } from "react";
-import clsx from "clsx";
-import { ReactCircuit } from "@components/react-circuit";
-
-export const BasicCircuit = ({ className }) => {
-  const [sim, setSim] = useState(null);
-  return (
-    <div className={clsx("flex flex-col items-center", className)}>
-      <ReactCircuit
-        onSimLoaded={setSim}
-        width={601}
-        editable={false}
-        height={300}
-        whiteBackground
-        ctz="CQAgjCAMB0l3BWcMBMcUHYMGZIA4UA2ATmIxAUgpABZsKBTAWjDACgBnETFcQq7NkJ8qokADMAhgBsODEABkFAfQDKbAG7cUNELl0odIqCZpUkYmEiXKAqmwBOevLrD9nu-SbDxFKgEpsAO56QsbYLsaQwdwYvG5Uhq7u0SFJepCekV7RAPbcIIS6VGak1DCQKBYFvNhsQA"
-      />
-    </div>
-  );
-};
+---
+title: Electricity
+---
 
 # Introduction to Electricity
 
-<BasicCircuit className="my-4" />
+Welcome to the online resource on electricity! This resource aims to provide a thorough understanding of electricity, covering various topics and concepts. Each chapter explores different aspects of electricity, from basic principles to advanced topics, and includes interactive illustrations to enhance the learning experience.
 
-Electricity is a fundamental force of nature that plays a crucial role in our modern world. It powers our homes, fuels our industries, and drives technological advancements across various fields. Understanding electricity is essential for comprehending the inner workings of countless devices and systems that surround us.
+## Table of Contents
 
-At its core, electricity is the flow of electric charge. It encompasses the movement of electrons, which are tiny, negatively charged particles found in atoms. These charged particles are responsible for creating electric currents when set into motion. This movement can occur through various mediums, such as conductive materials like metals or even through the air.
+### Part I: Introduction
 
-The study of electricity dates back centuries, with key milestones achieved by eminent scientists and inventors. In the 18th century, Benjamin Franklin conducted experiments with lightning and introduced the concept of positive and negative charges. His groundbreaking work laid the foundation for understanding the principles of electricity.
+- [1. Introduction to Electricity](/electricity/introduction)
+  - [1.1 History of Electricity](/electricity/introduction/history)
+  - [1.2 Electric Charge and Its Properties](/electricity/introduction/charge-properties)
+  - [1.3 Electrical Units and Measurements](/electricity/introduction/units-measurements)
 
-Throughout the 19th century, notable figures like Michael Faraday and James Clerk Maxwell made significant contributions to the field. Faraday's experiments with electromagnetic induction led to the development of electric generators and motors, while Maxwell's equations provided a mathematical framework to describe the behavior of electric and magnetic fields.
+### Part II: Fundamentals of Electricity
 
-The discovery and understanding of electricity revolutionized society. It led to the invention of countless devices and systems that have transformed how we live, communicate, and work. From the humble light bulb to sophisticated electronics, electricity powers everything from the simplest household appliance to complex machinery in industries like manufacturing, transportation, and telecommunications.
+- [2. Circuit Basics](/electricity/circuit-basics)
 
-Electricity has become so integrated into our daily lives that we often take it for granted. When we flip a switch, plug in a device, or charge our smartphones, we seldom pause to consider the underlying science that enables these actions. However, understanding the principles of electricity can empower us to make informed decisions, improve energy efficiency, and contribute to the development of sustainable practices.
+  - [2.1 Voltage: The Driving Force](/electricity/circuit-basics/voltage)
+  - [2.2 Current: Flow of Electric Charge](/electricity/circuit-basics/current)
+  - [2.3 Resistance: Opposition to Current](/electricity/circuit-basics/resistance)
+  - [2.4 Ohm's Law: The Relationship between Voltage, Current, and Resistance](/electricity/circuit-basics/ohms-law)
+  - [2.5 Power in Electric Circuits](/electricity/circuit-basics/power)
+  - [2.6 Series Circuits: The Path of Current](/electricity/circuit-basics/series-circuits)
+  - [2.7 Parallel Circuits: Dividing Current](/electricity/circuit-basics/parallel-circuits)
+  - [2.8 Circuit Analysis Techniques](/electricity/circuit-basics/analysis-techniques)
+  - [2.9 Circuit Illustrations and Examples](/electricity/circuit-basics/illustrations-examples)
 
-In this guide, we will explore the fundamental concepts of electricity, delve into its practical applications, and examine the technologies that rely on it. We will cover topics such as electric circuits, voltage, current, resistance, power, and electrical safety. By gaining a deeper understanding of electricity, you will be equipped to navigate the electrical world with confidence and appreciate the immense impact it has on our modern society.
+- [3. Direct Current (DC) Circuits](/electricity/dc-circuits)
+  - [3.1 Resistors: Components that Control Current](/electricity/dc-circuits/resistors)
+  - [3.2 Capacitors: Energy Storage in Electric Fields](/electricity/dc-circuits/capacitors)
+  - [3.3 Inductors: Magnetic Fields and Energy Storage](/electricity/dc-circuits/inductors)
+  - [3.4 RC Circuits: Time-Dependent Behavior](/electricity/dc-circuits/rc-circuits)
+  - [3.5 RL Circuits: Time-Dependent Behavior](/electricity/dc-circuits/rl-circuits)
+  - [3.6 RLC Circuits: Time-Dependent Behavior](/electricity/dc-circuits/rlc-circuits)
+  - [3.7 DC Circuit Analysis Examples](/electricity/dc-circuits/analysis-examples)
 
-So let us embark on a journey into the captivating realm of electricity, where invisible forces shape the world around us and illuminate the path to a brighter future.
+### Part III: Advanced Topics
+
+- [4. Electromagnetism and Electromagnetic Fields](/electricity/electromagnetism)
+
+  - [4.1 Magnetic Fields and Magnetic Forces](/electricity/electromagnetism/magnetic-fields-forces)
+  - [4.2 Electromagnetic Induction and Faraday's Law](/electricity/electromagnetism/induction-faradays-law)
+  - [4.3 Alternating Current (AC) Circuits](/electricity/electromagnetism/ac-circuits)
+  - [4.4 Electromagnetic Waves and Communication](/electricity/electromagnetism/electromagnetic-waves)
+
+- [5. Electric Sources and Circuits](/electricity/electric-sources)
+
+  - [5.1 Voltage Sources and Current Sources](/electricity/electric-sources/voltage-current-sources)
+  - [5.2 Series and Parallel Circuit Analysis](/electricity/electric-sources/series-parallel-analysis)
+  - [5.3 Three-Phase Power Systems](/electricity/electric-sources/three-phase-power-systems)
+  - [5.4 Network Theorems: Simplifying Circuit Analysis](/electricity/electric-sources/network-theorems)
+
+- [6. Electronics and Semiconductor Devices](/electricity/electronics)
+
+  - [6.1 Introduction to Semiconductors](/electricity/electronics/introduction-semiconductors)
+  - [6.2 Diodes and Rectifiers](/electricity/electronics/diodes-rectifiers)
+  - [6.3 Transistors and Amplifiers](/electricity/electronics/transistors-amplifiers)
+
+- [7. Electrical Safety and Regulations](/electricity/electrical-safety)
+
+  - [7.1 Electrical Hazards and Safety Measures](/electricity/electrical-safety/electrical-hazards-safety-measures)
+  - [7.2 Grounding and Protective Devices](/electricity/electrical-safety/grounding-protective-devices)
+  - [7.3 Electrical Codes and Regulations](/electricity/electrical-safety/electrical-codes-regulations)
+  - [7.4 Electrical Troubleshooting and Maintenance](/electricity/electrical-safety/electrical-troubleshooting-maintenance)
+
+- [8. Emerging Technologies in Electricity](/electricity/emerging-technologies)
+
+## Tables
+
+- [Permittivity of Materials](/electricity/permittivity)
+
+This online book on electricity aims to provide a brief understanding of the subject, accompanied by interactive illustrations to enhance the learning experience. Each chapter covers key concepts, practical applications, and subtopics for in-depth exploration. Feel free to click on the provided sublinks to navigate to the specific topics of interest.

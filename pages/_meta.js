@@ -9,11 +9,21 @@ export default {
     title: "Home",
     display: "hidden",
   },
+  legends: {
+    title: "Legends",
+  },
   electricity: {
     title: "Electricity",
   },
-  legends: {
-    title: "Legends",
+  calculators: {
+    title: "Calculators",
+    type: "menu",
+    items: {
+      "rlc-resonance": {
+        title: "RLC Resonance Calculator",
+        href: "/calculators/rlc-resonance",
+      },
+    },
   },
   // "circuit-simulator": {
   //   title: "Circuit Simulator",

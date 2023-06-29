@@ -26,7 +26,7 @@ export const LegendCard = ({
     <div className="flex flex-row items-start bg-gray-100 dark:bg-gray-900 rounded-md overflow-hidden">
       <div className="w-1/3 min-h-fit m-4 relative">
         <Image
-          className="rounded-md border border-gray-100 dark:border-gray-800"
+          className="rounded-md border border-gray-100 w-64 dark:border-gray-800"
           src={image}
           alt={name}
           placeholder="blur"
