@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { useState } from "react";
 import { useMemo } from "react";
 import { InlineMath, BlockMath } from "react-katex";
-import MATH from "@components/math";
+import MATH, { texHandler } from "@components/math";
 
 export function latex(str) {
   return <InlineMath math={str} />;
