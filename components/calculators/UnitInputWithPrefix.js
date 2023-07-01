@@ -21,18 +21,27 @@ export default function UnitInputWithPrefix({
   placeholder,
 }) {
   const unitValue = MATH.unit(value);
-  const unitWithPrefix = unitValue.formatUnits();
+  const incomintUnitWithPrefix = unitValue.formatUnits();
   const incomingUnitNumber = unitValue.toNumber();
+
   const [unitNumber, setUnitNumber] = useState(incomingUnitNumber);
+  const [unitWithPrefix, setUnitWithPrefix] = useState(incomintUnitWithPrefix);
 
   useEffect(() => {
-    if (disabled && incomingUnitNumber !== unitNumber) {
+    if (disabled) {
       setUnitNumber(incomingUnitNumber);
+      setUnitWithPrefix(incomintUnitWithPrefix);
       return;
     }
 
     if (unitNumber > 0) onChange(`${unitNumber} ${unitWithPrefix}`);
-  }, [unitNumber, incomingUnitNumber, disabled]);
+  }, [
+    unitNumber,
+    incomintUnitWithPrefix,
+    incomingUnitNumber,
+    disabled,
+    unitWithPrefix,
+  ]);
 
   return (
     <div className={clsx("relative flex w-full max-w-[24rem]", className)}>
@@ -72,7 +81,7 @@ export default function UnitInputWithPrefix({
                 key={unitWithPrefix}
                 value={prefix}
                 className="flex items-center gap-2"
-                onClick={() => onChange(`${unitNumber} ${unitWithPrefix}`)}
+                onClick={() => setUnitWithPrefix(unitWithPrefix)}
               >
                 {unitWithPrefix}
               </MenuItem>

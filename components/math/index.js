@@ -1,7 +1,11 @@
 import { create, all } from "mathjs";
 import { CONSTANTS, allowedChars } from "./constants";
 
-export const MATH = create(all);
+const config = {
+  precision: 5,
+};
+
+export const MATH = create(all, config);
 MATH.import(CONSTANTS);
 
 const isAlphaOriginal = MATH.parse.isAlpha;
