@@ -21,16 +21,27 @@ export default function UnitInputWithPrefix({
   placeholder,
 }) {
   const unitValue = MATH.unit(value);
-  const unitNumber = unitValue.toNumber();
   const unitWithPrefix = unitValue.formatUnits();
+  const incomingUnitNumber = unitValue.toNumber();
+  const [unitNumber, setUnitNumber] = useState(incomingUnitNumber);
+
+  useEffect(() => {
+    if (disabled && incomingUnitNumber !== unitNumber) {
+      setUnitNumber(incomingUnitNumber);
+      return;
+    }
+
+    if (unitNumber > 0) onChange(`${unitNumber} ${unitWithPrefix}`);
+  }, [unitNumber, incomingUnitNumber, disabled]);
 
   return (
     <div className={clsx("relative flex w-full max-w-[24rem]", className)}>
       <Input
         type="number"
+        min={0}
         disabled={disabled}
         value={unitNumber}
-        onChange={(e) => onChange(`${e.target.value} ${unitWithPrefix}`)}
+        onChange={(e) => setUnitNumber(e.target.value)}
         placeholder={placeholder}
         className="rounded-r-none !border-t-blue-gray-200 focus:!border-t-blue-500 dark:disabled:bg-transparent"
         labelProps={{
