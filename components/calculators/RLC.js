@@ -5,24 +5,20 @@ import { Radio } from "@material-tailwind/react";
 import { Button } from "@material-tailwind/react";
 import math from "@components/math";
 import { useEffect } from "react";
-import { BlockMath } from "react-katex";
+import { BlockMath, InlineMath } from "react-katex";
+import { useRef } from "react";
+import FunctionPlot from "../FunctionPlot";
+import { Tab, Tabs } from "nextra-theme-docs";
+import parallelImg from "./RLC.png";
+import Image from "next/image";
 
 const FORMULAS = {
   C: "1/(4*pi^2*f^2*L)",
   L: "1/(4*pi^2*f^2*C)",
   f: "f = 1/(2*pi*(L*C)^0.5)",
-  W: "w = 2*pi*f",
   XL: "XL = 2*pi*f*L",
-  XC: "XC = 1/(w*C)",
+  XC: "XC = 1/(2*pi*f*C)",
 };
-
-const FORMULA_W = "w = 2πf";
-const FORMULA_XL = "X_L = wL";
-const FORMULA_XC = "X_C = 1/wC";
-
-const FORMULA_FREQ = "f = 1/π(LC)^0.5";
-const FORMULA_CAP = "C = 1/2πf";
-const FORMULA_INDUCTANCE = "f = 1/π(LC)^0.5";
 
 const PRECISION = 5;
 
@@ -45,7 +41,8 @@ function RLCResonanceCalculator({ initValues }) {
   const [inductance, setInductance] = useState(initValues.inductance);
   const [capacitance, setCapacitance] = useState(initValues.capacitance);
   const [frequency, setFrequency] = useState(initValues.frequency);
-  const [reactance, setReactance] = useState("0 ohm");
+  const [coilResistance, setCoilResistance] = useState("1 ohm");
+  const [reactance, setReactance] = useState("0.1 ohm");
   const [calc, setCalc] = useState("f");
 
   const handleInductanceChange = (value) => {
@@ -58,6 +55,10 @@ function RLCResonanceCalculator({ initValues }) {
 
   const handleFrequencyChange = (value) => {
     setFrequency(value);
+  };
+
+  const handleCoilResistanceChange = (value) => {
+    setCoilResistance(value);
   };
 
   const calculateValue = () => {
@@ -114,8 +115,9 @@ function RLCResonanceCalculator({ initValues }) {
   const reactanceUnitValue = math.unit(reactance);
 
   return (
-    <div>
-      <div className="calculator-form md:w-1/3">
+    <div className="flex flex-row">
+      <div className="calculator-form md:w-1/3 items-center">
+        <Image src={parallelImg} />
         <div className="flex flex-row items-center">
           <Radio
             name="calc"
@@ -132,6 +134,16 @@ function RLCResonanceCalculator({ initValues }) {
             onChange={handleInductanceChange}
           />
         </div>
+        {/* <div className="flex flex-row items-center">
+          <UnitInputWithPrefix
+            className="mt-2 ml-11"
+            label="R1"
+            placeholder="Coil resistance"
+            unit="ohm"
+            value={coilResistance || "1 ohm"}
+            onChange={handleCoilResistanceChange}
+          />
+        </div> */}
         <div className="flex flex-row items-center">
           <Radio
             name="calc"
@@ -165,7 +177,16 @@ function RLCResonanceCalculator({ initValues }) {
           />
         </div>
         <div>
-          {reactanceUnitValue.value &&
+          {reactanceUnitValue.value && (
+            <div>
+              <BlockMath
+                math={`X_L = ${reactanceUnitValue.toNumber()} \\text{ ${reactanceUnitValue.formatUnits()}}`}
+              />
+            </div>
+          )}
+        </div>
+        {/* <div>
+          {coilResistanceUnitValue.value &&
             (console.log(1) || (
               <div>
                 <BlockMath
@@ -173,31 +194,61 @@ function RLCResonanceCalculator({ initValues }) {
                 />
               </div>
             ))}
-        </div>
+        </div> */}
       </div>
-
-      {/* <div>
-        <label>Capacitance (F):</label>
-        <input
-          className="form-input"
-          type="number"
-          value={capacitance}
-          onChange={handleCapacitanceChange}
-        />
+      <div className="w-2/3 ml-2 -mt-4 h-full">
+        {frequency && (
+          <Tabs
+            items={[
+              <InlineMath math="Z" />,
+              // <InlineMath math="X_L" />,
+              // <InlineMath math="X_C" />,
+            ]}
+          >
+            <Tab>
+              <FunctionPlot
+                options={{
+                  xAxis: {
+                    label: "Frequency",
+                    domain: [0, math.unit(frequency).value * 2],
+                  },
+                  yAxis: {
+                    label: "Reactance",
+                    domain: [0, math.unit(reactance).value * 3],
+                  },
+                  data: [
+                    {
+                      fn: `2*pi*x*L`,
+                      scope: {
+                        L: math.unit(inductance).value,
+                        C: math.unit(capacitance).value,
+                        pi: Math.PI,
+                      },
+                      sampler: "builtIn", // Use built-in sampling method
+                      graphType: "polyline", // Use line plot
+                      range: [0, 10e10], // Define the range of x values
+                      graphTitle: "XL", // Title of the graph
+                      grid: true, // Display grid lines
+                    },
+                    {
+                      fn: `1/(2*pi*x*C)`,
+                      scope: {
+                        C: math.unit(capacitance).value,
+                        pi: Math.PI,
+                      },
+                      sampler: "builtIn", // Use built-in sampling method
+                      graphType: "polyline", // Use line plot
+                      range: [0, 10e10], // Define the range of x values
+                      graphTitle: "XC", // Title of the graph
+                      grid: true, // Display grid lines
+                    },
+                  ],
+                }}
+              />
+            </Tab>
+          </Tabs>
+        )}
       </div>
-      <div>
-        <label>Frequency (Hz):</label>
-        <input
-          type="number"
-          value={frequency}
-          onChange={handleFrequencyChange}
-        />
-      </div> */}
-      {/* <div className="text-right mt-4">
-        <Button className="w-full" onClick={calculateValue}>
-          Calculate
-        </Button>
-      </div> */}
     </div>
   );
 }

@@ -44,7 +44,7 @@ export default function UnitInputWithPrefix({
   ]);
 
   return (
-    <div className={clsx("relative flex w-full max-w-[24rem]", className)}>
+    <div className={clsx("flex max-w-[24rem]", className)}>
       <Input
         type="number"
         min={0}
@@ -57,7 +57,7 @@ export default function UnitInputWithPrefix({
           className: "before:content-none after:content-none",
         }}
         containerProps={{
-          className: "min-w-0",
+          className: "min-w-[0]",
         }}
       />
       <Menu placement="bottom-end">
