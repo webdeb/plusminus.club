@@ -200,7 +200,7 @@ function RLCResonanceCalculator({ initValues }) {
         {frequency && (
           <Tabs
             items={[
-              <InlineMath math="Z" />,
+              <InlineMath math="X_L, X_C" />,
               // <InlineMath math="X_L" />,
               // <InlineMath math="X_C" />,
             ]}
