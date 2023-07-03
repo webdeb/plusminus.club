@@ -2,6 +2,15 @@ import * as images from "./images";
 
 export const legends = [
   {
+    name: "Mikhail Lomonosov",
+    dateOfBirth: "November 19, 1711",
+    dateOfDeath: "April 15, 1765",
+    shortDescription:
+      "Mikhail Lomonosov was a Russian polymath, scientist, and writer who made significant contributions to various fields, including physics, chemistry, astronomy, and literature. His work in the field of electricity advanced our understanding of electric charge conservation and electrochemistry.",
+    image: images.lomonosov_img,
+    id: "mikhail-lomonosov",
+  },
+  {
     name: "Benjamin Franklin",
     dateOfBirth: "January 17, 1706",
     dateOfDeath: "April 17, 1790",

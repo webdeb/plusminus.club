@@ -24,6 +24,11 @@ const config: DocsThemeConfig = {
   project: {
     link: "https://github.com/webdeb/plusminus.club",
   },
+  useNextSeoProps() {
+    return {
+      titleTemplate: "%s – plusminus.club",
+    };
+  },
   // chat: {
   //   link: "https://discord.com",
   // },

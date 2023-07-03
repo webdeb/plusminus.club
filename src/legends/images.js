@@ -10,3 +10,4 @@ export { default as maxwell_img } from "./assets/maxwell_819x1024.jpg";
 export { default as tesla_img } from "./assets/tesla_274x367.jpg";
 export { default as hertz_img } from "./assets/hertz_742x960.jpg";
 export { default as ampere_img } from "./assets/ampere_493x666.jpg";
+export { default as lomonosov_img } from "./assets/lomonosov.jpg";
