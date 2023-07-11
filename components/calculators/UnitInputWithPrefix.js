@@ -62,22 +62,7 @@ export default function UnitInputWithPrefix({
         min={0}
         disabled={disabled}
         value={unitNumber}
-        onChange={(e) => {
-          console.log(unitNumber, e.target.value);
-          if (unitNumber == 1 && e.target.value == 0) {
-            if (unitWithPrefixes[unitIndex + 1]) {
-              setUnitIndex(unitIndex + 1);
-              setUnitNumber(999);
-            }
-          } else if (unitNumber == 999 && e.target.value == 1000) {
-            if (unitWithPrefixes[unitIndex - 1]) {
-              setUnitIndex(unitIndex - 1);
-              setUnitNumber(1);
-            }
-          } else {
-            setUnitNumber(e.target.value);
-          }
-        }}
+        onChange={(e) => setUnitNumber(e.target.value)}
         step={1}
         placeholder={placeholder}
         className="w-full rounded-r-none !border-t-blue-gray-200 focus:!border-t-blue-500 dark:disabled:bg-transparent"
