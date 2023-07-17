@@ -113,6 +113,9 @@ function RLCResonanceCalculator({ initValues }) {
   };
 
   const reactanceUnitValue = math.unit(reactance);
+  const inductanceUnitValue = math.unit(inductance);
+  const capacitanceUnitValue = math.unit(capacitance);
+  const coilResistanceUnitValue = math.unit(coilResistance);
 
   return (
     <div className="flex flex-row">
@@ -134,7 +137,7 @@ function RLCResonanceCalculator({ initValues }) {
             onChange={handleInductanceChange}
           />
         </div>
-        {/* <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center">
           <UnitInputWithPrefix
             className="mt-2 ml-11"
             label="R1"
@@ -143,7 +146,7 @@ function RLCResonanceCalculator({ initValues }) {
             value={coilResistance || "1 ohm"}
             onChange={handleCoilResistanceChange}
           />
-        </div> */}
+        </div>
         <div className="flex flex-row items-center">
           <Radio
             name="calc"
@@ -185,16 +188,14 @@ function RLCResonanceCalculator({ initValues }) {
             </div>
           )}
         </div>
-        {/* <div>
-          {coilResistanceUnitValue.value &&
-            (console.log(1) || (
-              <div>
-                <BlockMath
-                  math={`X_L = ${reactanceUnitValue.toNumber()} \\text{ ${reactanceUnitValue.formatUnits()}}`}
-                />
-              </div>
-            ))}
-        </div> */}
+        <div>
+          <BlockMath
+            math={`Z_0 = ${Number(
+              inductanceUnitValue.value /
+                (coilResistanceUnitValue.value * capacitanceUnitValue.value)
+            ).toFixed(2)} \\text{ ${reactanceUnitValue.formatUnits()}}`}
+          />
+        </div>
       </div>
       <div className="w-2/3 ml-2 -mt-4 h-full">
         {frequency && (
@@ -234,6 +235,20 @@ function RLCResonanceCalculator({ initValues }) {
                       fn: `1/(2*pi*x*C)`,
                       scope: {
                         C: math.unit(capacitance).value,
+                        pi: Math.PI,
+                      },
+                      sampler: "builtIn", // Use built-in sampling method
+                      graphType: "polyline", // Use line plot
+                      range: [0, 10e10], // Define the range of x values
+                      graphTitle: "XC", // Title of the graph
+                      grid: true, // Display grid lines
+                    },
+                    {
+                      fn: "(L/C)/sqrt(R1^2 + (2*pi*x*L - 1/(2*pi*x*C))^2)",
+                      scope: {
+                        C: math.unit(capacitance).value,
+                        L: math.unit(inductance).value,
+                        R1: math.unit(coilResistance).value,
                         pi: Math.PI,
                       },
                       sampler: "builtIn", // Use built-in sampling method
