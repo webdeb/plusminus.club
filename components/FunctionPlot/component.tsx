@@ -14,14 +14,11 @@ export const FunctionPlot: React.FC<FunctionPlotProps & any> = ({
   const rootEl = useRef(null);
   const [plot, setPlot] = useState(null);
 
-  console.log(data);
-
   useEffect(() => {
-    if (!rootEl.current || plot?.id === id) return;
+    if (!rootEl.current || plot) return;
     const plotInstance = functionPlot(
       Object.assign({}, options, { target: rootEl.current })
     );
-    plotInstance.id = id;
     for (let k in eventHandlers) {
       plotInstance.on(k, (...args) => eventHandlers[k](...args, plotInstance));
     }
@@ -29,9 +26,7 @@ export const FunctionPlot: React.FC<FunctionPlotProps & any> = ({
   }, [options, rootEl.current, plot]);
 
   useEffect(() => {
-    console.log({ data });
     if (!plot || !data) return;
-    console.log(data);
     plot.options.data = data;
     plot.draw();
   }, [data, plot]);
