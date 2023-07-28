@@ -1,20 +1,40 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import functionPlot, { FunctionPlotOptions } from "function-plot";
 
 export interface FunctionPlotProps {
   options?: FunctionPlotOptions;
 }
 
-export const FunctionPlot: React.FC<FunctionPlotProps> = React.memo(
-  ({ options }) => {
-    const rootEl = useRef(null);
+export const FunctionPlot: React.FC<FunctionPlotProps & any> = ({
+  options,
+  data,
+  eventHandlers = {},
+  id,
+}) => {
+  const rootEl = useRef(null);
+  const [plot, setPlot] = useState(null);
 
-    useEffect(() => {
-      if (!rootEl.current) return;
-      functionPlot(Object.assign({}, options, { target: rootEl.current }));
-    }, [options, rootEl.current]);
+  console.log(data);
 
-    return <div ref={rootEl} />;
-  },
-  () => false
-);
+  useEffect(() => {
+    if (!rootEl.current || plot?.id === id) return;
+    const plotInstance = functionPlot(
+      Object.assign({}, options, { target: rootEl.current })
+    );
+    plotInstance.id = id;
+    for (let k in eventHandlers) {
+      plotInstance.on(k, (...args) => eventHandlers[k](...args, plotInstance));
+    }
+    setPlot(plotInstance);
+  }, [options, rootEl.current, plot]);
+
+  useEffect(() => {
+    console.log({ data });
+    if (!plot || !data) return;
+    console.log(data);
+    plot.options.data = data;
+    plot.draw();
+  }, [data, plot]);
+
+  return <div ref={rootEl} />;
+};

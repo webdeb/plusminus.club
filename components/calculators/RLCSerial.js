@@ -9,7 +9,7 @@ import { BlockMath, InlineMath } from "react-katex";
 import { useRef } from "react";
 import FunctionPlot from "../FunctionPlot";
 import { Tab, Tabs } from "nextra-theme-docs";
-import parallelImg from "./RLC_Parallel.png";
+import parallelImg from "./RLC_Serial.png";
 import Image from "next/image";
 
 const FORMULAS = {
@@ -190,10 +190,9 @@ function RLCResonanceCalculator({ initValues }) {
         </div>
         <div>
           <BlockMath
-            math={`Z_0 = ${Number(
-              inductanceUnitValue.value /
-                (coilResistanceUnitValue.value * capacitanceUnitValue.value)
-            ).toFixed(2)} \\text{ ${reactanceUnitValue.formatUnits()}}`}
+            math={`Z_0 = ${Number(coilResistanceUnitValue.value).toFixed(
+              2
+            )} \\text{ ${reactanceUnitValue.formatUnits()}}`}
           />
         </div>
       </div>
@@ -208,9 +207,7 @@ function RLCResonanceCalculator({ initValues }) {
           >
             <Tab>
               <FunctionPlot
-                id="parallel"
                 options={{
-                  id: "parallel",
                   xAxis: {
                     label: "Frequency",
                     domain: [0, math.unit(frequency).value * 2],
@@ -219,48 +216,48 @@ function RLCResonanceCalculator({ initValues }) {
                     label: "Reactance",
                     domain: [0, math.unit(reactance).value * 3],
                   },
+                  data: [
+                    {
+                      fn: `2*pi*x*L`,
+                      scope: {
+                        L: math.unit(inductance).value,
+                        C: math.unit(capacitance).value,
+                        pi: Math.PI,
+                      },
+                      sampler: "builtIn", // Use built-in sampling method
+                      graphType: "polyline", // Use line plot
+                      range: [0, 10e10], // Define the range of x values
+                      graphTitle: "XL", // Title of the graph
+                      grid: true, // Display grid lines
+                    },
+                    {
+                      fn: `1/(2*pi*x*C)`,
+                      scope: {
+                        C: math.unit(capacitance).value,
+                        pi: Math.PI,
+                      },
+                      sampler: "builtIn", // Use built-in sampling method
+                      graphType: "polyline", // Use line plot
+                      range: [0, 10e10], // Define the range of x values
+                      graphTitle: "XC", // Title of the graph
+                      grid: true, // Display grid lines
+                    },
+                    {
+                      fn: "(L/C)/sqrt(R1^2 + (2*pi*x*L - 1/(2*pi*x*C))^2)",
+                      scope: {
+                        C: math.unit(capacitance).value,
+                        L: math.unit(inductance).value,
+                        R1: math.unit(coilResistance).value,
+                        pi: Math.PI,
+                      },
+                      sampler: "builtIn", // Use built-in sampling method
+                      graphType: "polyline", // Use line plot
+                      range: [0, 10e10], // Define the range of x values
+                      graphTitle: "XC", // Title of the graph
+                      grid: true, // Display grid lines
+                    },
+                  ],
                 }}
-                data={[
-                  {
-                    fn: `2*pi*x*L`,
-                    scope: {
-                      L: math.unit(inductance).value,
-                      C: math.unit(capacitance).value,
-                      pi: Math.PI,
-                    },
-                    sampler: "builtIn", // Use built-in sampling method
-                    graphType: "polyline", // Use line plot
-                    range: [0, 10e10], // Define the range of x values
-                    graphTitle: "XL", // Title of the graph
-                    grid: true, // Display grid lines
-                  },
-                  {
-                    fn: `1/(2*pi*x*C)`,
-                    scope: {
-                      C: math.unit(capacitance).value,
-                      pi: Math.PI,
-                    },
-                    sampler: "builtIn", // Use built-in sampling method
-                    graphType: "polyline", // Use line plot
-                    range: [0, 10e10], // Define the range of x values
-                    graphTitle: "XC", // Title of the graph
-                    grid: true, // Display grid lines
-                  },
-                  {
-                    fn: "(L/C)/sqrt(R1^2 + (2*pi*x*L - 1/(2*pi*x*C))^2)",
-                    scope: {
-                      C: math.unit(capacitance).value,
-                      L: math.unit(inductance).value,
-                      R1: math.unit(coilResistance).value,
-                      pi: Math.PI,
-                    },
-                    sampler: "builtIn", // Use built-in sampling method
-                    graphType: "polyline", // Use line plot
-                    range: [0, 10e10], // Define the range of x values
-                    graphTitle: "XC", // Title of the graph
-                    grid: true, // Display grid lines
-                  },
-                ]}
               />
             </Tab>
           </Tabs>
