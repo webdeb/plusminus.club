@@ -15,6 +15,9 @@ export default {
   electricity: {
     title: "Electricity",
   },
+  hackpwm: {
+    title: "HackPWM",
+  },
   calculators: {
     title: "Calculators",
     type: "menu",
