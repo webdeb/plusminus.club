@@ -16,7 +16,7 @@ export default {
     title: "Electricity",
   },
   hackpwm: {
-    title: "HackPWM",
+    title: "Hack PWM",
   },
   calculators: {
     title: "Calculators",
