@@ -6,7 +6,7 @@ export default {
     },
   },
   index: {
-    title: "Basic Info",
+    title: "HackPWM",
     theme: {
       breadcrumb: false,
     },

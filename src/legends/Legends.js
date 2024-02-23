@@ -1,6 +1,5 @@
-import { legends } from "./legends.en";
+import { legends } from "@components/legends/legends.en";
 import clsx from "clsx";
-import { useSSG } from "nextra/ssg";
 import Link from "next/link";
 import Image from "next/image";
 

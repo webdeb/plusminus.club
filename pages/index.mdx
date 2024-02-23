@@ -3,7 +3,7 @@ title: A site about electricity
 ---
 
 import { getGitIssueUrl } from "../utils";
-import { legends } from "~/legends/legends.en";
+import { legends } from "@components/legends/legends.en";
 import { Feature, Features } from "@components/features";
 import cn from "clsx";
 import { motion } from "framer-motion";
@@ -21,6 +21,7 @@ export function Legends() {
             src={legend.image}
             width={240}
             height={360}
+            alt={legend.shortDescription}
           />
         </div>
         <h3 className="text-lg p-2 text-center font-medium">{legend.name}</h3>

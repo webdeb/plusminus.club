@@ -10,7 +10,6 @@ export default function LegendsPageHeader(
 ) {
   const router = useRouter();
   const config = useConfig();
-  console.log(title, children, props, config.frontMatter, router.pathname);
   const pathParts = router.pathname.split("/");
   const legendId = pathParts.slice(-1)[0];
 
