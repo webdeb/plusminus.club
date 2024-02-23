@@ -16,8 +16,9 @@ export default {
     title: "Electricity",
   },
   hackpwm: {
-    title: "Hack PWM",
+    title: "HackPWM",
   },
+  shop: "Shop",
   calculators: {
     title: "Calculators",
     type: "menu",
