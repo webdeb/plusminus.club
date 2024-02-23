@@ -18,7 +18,9 @@ export default {
   hackpwm: {
     title: "HackPWM",
   },
-  shop: "Shop",
+  shop: {
+    title: "Shop",
+  },
   calculators: {
     title: "Calculators",
     type: "menu",
