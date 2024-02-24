@@ -1,16 +1,16 @@
-export default {
+{
   "*": {
-    type: "doc",
-    theme: {
-      layout: "default",
-      typesetting: "article",
-    },
+    "type": "doc",
+    "theme": {
+      "layout": "default",
+      "typesetting": "article"
+    }
   },
-  index: {
-    title: "Legends",
-    theme: {
-      breadcrumb: false,
-    },
+  "index": {
+    "title": "Legends",
+    "theme": {
+      "breadcrumb": false
+    }
   },
   "nikola-tesla": "Nikola Tesla",
   "benjamin-franklin": "Benjamin Franklin",
@@ -22,5 +22,5 @@ export default {
   "michael-faraday": "Michael Faraday",
   "james-prescott-joule": "James Prescott Joule",
   "james-clerk-maxwell": "James Clerk Maxwell",
-  "heinrich-hertz": "Heinrich Hertz",
-};
+  "heinrich-hertz": "Heinrich Hertz"
+}

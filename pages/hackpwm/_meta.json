@@ -1,0 +1,14 @@
+{
+  "*": {
+    "type": "doc",
+    "theme": {
+      "layout": "default"
+    }
+  },
+  "index": {
+    "title": "HackPWM",
+    "theme": {
+      "breadcrumb": false
+    }
+  }
+}

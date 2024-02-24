@@ -1,0 +1,9 @@
+{
+  "*": {
+    "type": "doc",
+    "theme": {
+      "layout": "default",
+      "typesetting": "article"
+    }
+  }
+}
