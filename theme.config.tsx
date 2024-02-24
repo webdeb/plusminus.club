@@ -59,20 +59,23 @@ const config: DocsThemeConfig = {
   sidebar: {
     defaultMenuCollapseLevel: 1,
   },
-  // toc: {
-  //   // title: (...args) => {
-  //   //   console.log({ args }, "title");
-  //   //   return "Heheh..";
-  //   // },
-  //   // extraContent: (...args) => {
-  //   //   console.log({ args }, "extraContent");
-  //   //   return null;
-  //   // },
-  //   // component: (...args) => {
-  //   //   console.log({ args });
-  //   //   return null;
-  //   // },
-  // },
+  toc: {
+    // title: (...args) => {
+    //   console.log({ args }, "title");
+    //   return "Heheh..";
+    // },
+    extraContent: (...args) => {
+      return (
+        <div>
+          Contact: <a href="mailto:mail@plusminus.club"> mail@plusminus.club</a>
+        </div>
+      );
+    },
+    // component: (...args) => {
+    //   console.log({ args });
+    //   return null;
+    // },
+  },
 };
 
 const I18n_STRINGS = {
