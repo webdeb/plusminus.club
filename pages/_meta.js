@@ -20,6 +20,9 @@ export default {
   },
   shop: {
     title: "Shop",
+    theme: {
+      layout: "default",
+    },
   },
   calculators: {
     title: "Calculators",
