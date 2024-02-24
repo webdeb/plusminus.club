@@ -32,15 +32,15 @@ const config: DocsThemeConfig = {
   // chat: {
   //   link: "https://discord.com",
   // },
-  // i18n: [
-  //   { locale: "en", text: "English" },
-  //   { locale: "ru", text: "Русский" },
-  //   { locale: "de", text: "Deutsch" },
-  // ],
+  i18n: [
+    { locale: "en", text: "English" },
+    { locale: "ru", text: "Русский" },
+    { locale: "de", text: "Deutsch" },
+  ],
   docsRepositoryBase: "https://github.com/webdeb/plusminus.club",
 
   footer: {
-    text: "© plusminus.club 2023",
+    text: "© plusminus.club 2024",
   },
   search: {
     placeholder: () => I18n_STRINGS.searchPlaceholder[useRouter().locale],

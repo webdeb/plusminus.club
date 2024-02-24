@@ -1,24 +1,26 @@
 import Link from "next/link";
 
-# HackPWM Systems
+# The HackPWM Platform
 
-## Concept
+### Concept
 
-The basic idea is to allow the user to create powerful PWM Systems with a small, but flexible set of Program Blocks which can depend on other signals, so it can provide continuous PWM signal output. Pwm signals which depend on other signal level (high or low), phase shifting, signal counting etc.
+The basic idea is to allow the user to create powerful PWM Systems with a small, but flexible set of Program Blocks which can depend on other signals, so it can provide continuous PWM signal output, signal cascading, phase shifting, signal counting etc.
 
-## Built-in Program Blocks
+#### Pins
 
-Program Blocks can be created by advanced users.
+Which pins can be used for what.
+
+- `OUTx` Pins: **OUT1**, **OUT2**, **OUT3**, **OUT4**, **OUT5**, **OUT6** can be used as `pin`, `wait_pin` and `count_pin` with internal programs. But external signals can not be applied to those pins.
+- `GP0x` Pins: **GP02**, **GP03**, **GP04** can also be used as well as `pin` and as `wait_pin` / `count_pin` for external signal sources. Keep in mind, that `GP0x` pins have only 3.3V output voltage and should be used to drive signals only. If using as inputs for external signal sources, they must be protected appropriately. The engineer should maintain an input voltage at about 3.3V. For more info see [RP2040 Datasheet](https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf) 5.5.3. **Pin Specifications**.
+
+--- 
+
+#### Built-in Program Blocks
+
+We are going to explore the built-in program blocks, but custom program blocks can also be created by more advanced users.
 See source code: https://github.com/webdeb/nanoshim/blob/hackpwm/src/hackpwm/programs.py
 
-#### General information about available Pins
-
-- `OUTx` Pins: **OUT1**, **OUT2**, **OUT3**, **OUT4**, **OUT5**, **OUT6** can be used as `pin`, `wait_pin` and `count_pin`. But external signals must not be applied.
-
-- `GP0x` Pins: **GP02**, **GP03**, **GP04** can be used as well as `pin` and as `wait_pin` / `count_pin` for external signal sources. Keep in mind, that `GP0x` pins have only 3.3V output voltage and should be used to drive signals.
-  If using as inputs for external signal sources, they must be protected appropriately. See [RP2040 Datasheet](https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf) 5.5.3. Pin Specifications. In a nutshell keep max input voltage at about **3.3V**. For example with a **1N4728** z-diode.
-
-### PWM
+### PWM - Program
 
 - `pid` = "PWM"
 
@@ -46,10 +48,11 @@ The output depends on the actual settings in the UI, like the frequency and the 
 ![Basic PWM signal](./PWM.png)
 
 ```json
-// Example system configuration
 {
   "title": "Simple PWM System",
-  "programs": [{ "pid": "PWM", "label": "F1", "pin": "OUT1" }]
+  "programs": [
+    { "pid": "PWM", "label": "F1", "pin": "OUT1" }
+  ]
 }
 ```
 
@@ -57,30 +60,40 @@ The output depends on the actual settings in the UI, like the frequency and the 
 
 ![PWM with Ref](./PWM-With-Ref.png)
 
+With an internally controlled pin
+
 ```json
-// Example system configuration
 {
   "title": "PWM with Ref",
   "programs": [
     { "pid": "PWM", "label": "Ch1", "pin": "OUT1", "wait_pin": "OUT2" },
-    { "pid": "PWM", "label": "Package", "pin": "OUT2" },
-    // OR wait for external
+    { "pid": "PWM", "label": "Package", "pin": "OUT2" }
+  ]
+}
+```
+
+Or an external pin as input.
+
+```json
+{
+  "title": "PWM with Ref",
+  "programs": [
     { "pid": "PWM", "label": "F1", "pin": "OUT1", "wait_pin": "GP02" }
   ]
 }
 ```
 
-_If you copy, remove comments and trailing commas_
+---
 
-### PUSH PULL
-
-The Push Pull program represents mostly the same as the PWM Program and supports the config parameters, but different from the **PWM** program it runs first the full period for the configured `pin` and then it runs the same period for `pin+1`. This is why you should pay attention which `pin` you configure.
+### PUSH PULL - Program
 
 - `pid` = "PUSH_PULL"
 
-**Configugration parameters:**
+The Push Pull program is almost the same as PWM Program and supports the same configuration parameters, but differs from the **PWM** program only as it runs first the full period for the configured `pin` and then it runs the same period for `pin+1`. This is why you should pay attention which `pin` you configure.
 
-- `label` like **My Push Pull**, or **H-Bridge** or **CH12**
+**Configuration parameters:**
+
+- `label` like **Push Pull**, **H-Bridge** or **CH12**..
 
 - `pin` The **first** signal out pin. Keep in mind, that the **PUSH PULL** Program will acquire _pin+1_ automatically.
 
@@ -117,18 +130,13 @@ _The program will end its cycle, before it is going to wait mode again._
 {
   "title": "PushPull",
   "programs": [
-    {
-      "pid": "PUSH_PULL",
-      "label": "Push Pull",
-      "pin": "OUT1",
-      "wait_pin": "OUT3"
-    },
+    { "pid": "PUSH_PULL", "label": "Push Pull", "pin": "OUT1", "wait_pin": "OUT3" },
     { "pid": "PWM", "label": "Mod", "pin": "OUT3" }
   ]
 }
 ```
 
-### PHASE PULSE
+### PHASE PULSE - Program
 
 The Phase Pulse program requires a reference signal `wait_pin`. When the configured level of the reference signal is available, it will wait for **x** cpu cycles and then change to high for **y** cpu cycles. Before closing its cycle, it will wait for the inverted `wait_level` so it assured that the Phase Pulse Program runs only once, for each period of the ref signal. To perform multiple pulses, one could use a `PWM` signal with the `wait_pin` referencing the Phase Pulse signal. This is a first-class feature, so the Phase Pulse Program offers `count_pin` configuration option, which allows the user to set the amount of pulses it should be in high mode.
 
@@ -136,7 +144,7 @@ The Phase Pulse program requires a reference signal `wait_pin`. When the configu
 
 Configugration parameters:
 
-- label (optional)
+- `label` (optional)
 
 - `pin` the output pin
 
@@ -180,20 +188,16 @@ _Same config as before, it just depends on the setting of the Phs param in the U
 
 ![Phase Pulse same count](./PHASE_PULSE_same_count_as_ref.png)
 
-_The program waits for the wait_pin 1, then delays, and then it stays in the high state as long it counts for 2 (example) cycles of the ref pin._
+_The program waits for the `wait_pin`, then delays, and then it stays in the high state as long it counts for 2 cycles (as an example) of the `count_pin`._
+
+
 
 ```json
 {
   "title": "Phase Examp",
   "programs": [
     { "pid": "PWM", "label": "F1", "pin": "OUT1" },
-    {
-      "pid": "PHASE_PULSE",
-      "label": "S1",
-      "pin": "OUT2",
-      "wait_pin": "OUT1",
-      "count_pin": "OUT1"
-    }
+    { "pid": "PHASE_PULSE", "label": "S1", "pin": "OUT2", "wait_pin": "OUT1", "count_pin": "OUT1" }
   ]
 }
 ```
@@ -202,35 +206,24 @@ _The program waits for the wait_pin 1, then delays, and then it stays in the hig
 
 #### 4P System
 
-The same system as demonstrated <Link className="font-semibold" href="/hackpwm">here</Link>.
-The program seems to be complicated, but can be easily created using this basic set of primitives and it looks pretty simple and natural, once you understand the inner mechanics of the HackPWM platform.
+At first glance the program seems to be complicated, but can be easily created using this basic set of primitives and it looks pretty simple and natural, once you understand the inner mechanics of  **The HackPWM Platform**.
+
+![4P Program](./4P.png)
 
 ```json
 {
   "title": "4P",
   "programs": [
-    {
-      "pid": "PUSH_PULL",
-      "label": "Push Pull",
-      "pin": "OUT1"
-    },
-    {
-      "pid": "PWM",
-      "label": "Tesla",
-      "pin": "OUT3",
-      "wait_pin": "OUT4"
-    },
-    {
-      "pid": "PHASE_PULSE",
-      "pin": "OUT4",
-      "wait_pin": "OUT1",
-      "count_pin": "OUT3"
-    }
+    { "pid": "PUSH_PULL", "label": "Push Pull", "pin": "OUT1" },
+    { "pid": "PWM", "label": "Tesla", "pin": "OUT3", "wait_pin": "OUT4" },
+    { "pid": "PHASE_PULSE", "pin": "OUT4", "wait_pin": "OUT1", "count_pin": "OUT3" }
   ]
 }
 ```
 
-### Configuring the device.
+--- 
+
+### Upload Configuration to HackPWM
 
 You can create multiple PWM Systems and upload them to the device. All of the Systems will preserve their state and be available after rebooting.
 
@@ -238,7 +231,7 @@ Connecting to the device and upload files to the board can be accomplished in ma
 
 You can download it here https://github.com/harbaum/upide/releases There are precompiled bundles for MacOS, Windows and Linux.
 
-### Example of uPIDE
+##### Example of uPIDE
 
 1. Connect your HackPWM with the Computer over USB
 2. Start the Program uPIDE
@@ -253,13 +246,14 @@ The program first searches for serial ports and after it has found the device it
 
 #### systems.json file
 
-The default `/store/systems.json` includes the program **6xPWM**, **4P** and **2F AM**. It is using the integer numbers like **8** (OUT1) instead of "OUT1" which are internally mapped to the actual pin number. By reodering the objects in the list, you can change the order in which they appear in the **PWM Systems** Menu.
+The default `/store/systems.json` includes the program **6xPWM**, **4P** and **2F AM**. It is using the integer numbers like&nbsp;`8` instead of `OUT1` which are internally mapped to the actual pin number. By reodering the objects in the list, you can change the order in which they appear in the **PWM Systems** Menu.
 Here is the default file. You can use the following code as reference or to reset your device, if you made a mistake. So no problem.
 
 ```json
 {
   "systems": [
     {
+      "title": "6xPWM",
       "programs": [
         { "pin": 8, "label": "F1", "pid": "PWM" },
         { "pin": 9, "label": "F2", "pid": "PWM" },
@@ -267,25 +261,24 @@ Here is the default file. You can use the following code as reference or to rese
         { "pin": 11, "label": "F4", "pid": "PWM" },
         { "pin": 12, "label": "F5", "pid": "PWM" },
         { "pin": 13, "label": "F6", "pid": "PWM" }
-      ],
-      "title": "6xPWM"
+      ]
     },
     {
+      "title": "4P",
       "programs": [
         { "pin": 8, "label": "PushPull", "pid": "PUSH_PULL" },
         { "pid": "PWM", "wait_pin": 11, "pin": 10, "label": "Tesla" },
         { "pid": "PHASE_PULSE", "count_pin": 10, "pin": 11, "wait_pin": 8 }
-      ],
-      "title": "4P"
+      ]
     },
     {
+      "title": "2F AM",
       "programs": [
         { "pin": 8, "label": "Mod", "pid": "PWM" },
         { "pid": "PWM", "wait_pin": 8, "pin": 9, "label": "F1" },
         { "pid": "PWM", "wait_pin": 11, "pin": 10, "label": "F2" },
         { "pid": "PHASE_PULSE", "count_pin": 10, "wait_pin": 8, "pin": 11 }
-      ],
-      "title": "2F AM"
+      ]
     }
   ],
   "version": 2
