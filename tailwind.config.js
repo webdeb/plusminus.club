@@ -20,8 +20,8 @@ export default withMT({
     },
   },
   plugins: [
-    forms({
-      strategy: "class",
-    }),
+    // forms({
+    //   strategy: "class",
+    // }),
   ],
 });

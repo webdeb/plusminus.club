@@ -9,7 +9,7 @@ import { BlockMath, InlineMath } from "react-katex";
 import { useRef } from "react";
 import FunctionPlot from "../FunctionPlot";
 import { Tab, Tabs } from "nextra-theme-docs";
-import parallelImg from "./RLC_Parallel.png";
+import parallelImg from "./RLCParallel.png";
 import Image from "next/image";
 
 const FORMULAS = {

@@ -19,6 +19,7 @@ const unitPrefixes = ["G", "M", "k", "", "m", "u", "n", "p"];
 export default function UnitInputWithPrefix({
   unit,
   value,
+  label,
   onChange,
   className,
   disabled,
@@ -60,17 +61,15 @@ export default function UnitInputWithPrefix({
       <Input
         type="number"
         min={0}
+        label={label}
         disabled={disabled}
         value={unitNumber}
         onChange={(e) => setUnitNumber(e.target.value)}
         step={1}
         placeholder={placeholder}
-        className="w-full rounded-r-none !border-t-blue-gray-200 focus:!border-t-blue-500 dark:disabled:bg-transparent"
-        labelProps={{
-          className: "before:content-none after:content-none",
-        }}
+        className="w-full rounded-r-none"
         containerProps={{
-          className: "min-w-[0] w-full",
+          className: "min-w-[0] w-full rounded-r-0",
         }}
       />
       <Menu placement="bottom-end">
