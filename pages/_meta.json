@@ -29,8 +29,12 @@
     "type": "menu",
     "items": {
       "rlc-resonance": {
-        "title": "RLC Resonance Calculator",
+        "title": "RLC Resonance",
         "href": "/calculators/rlc-resonance"
+      },
+      "tesla-coil": {
+        "title": "Tesla Coil",
+        "href": "/calculators/tesla-coil"
       }
     }
   }

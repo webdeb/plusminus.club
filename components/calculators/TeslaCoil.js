@@ -214,8 +214,8 @@ function TeslaCoilCalculator() {
               },
             ]}
           />
-          <div>
-            <span className="text-[blue]">LC</span><span className="ml-2 text-[red]">Self Resonance 1/4</span>
+          <div className="flex justify-between">
+            <div className="text-[blue]">LC</div><div className="ml-2 text-[red]">Self Resonance 1/4</div>
           </div>
           </>
         )}
