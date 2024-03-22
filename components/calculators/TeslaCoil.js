@@ -157,14 +157,16 @@ function TeslaCoilCalculator() {
       </div>
       <div className="w-2/3 ml-2 -mt-4 h-full">
         {frequency && (
+          <>
+          
           <FunctionPlot
             options={{
               xAxis: {
-                label: "Length",
+                label: "Length in m",
                 domain: [1, wireLength * 2],
               },
               yAxis: {
-                label: "Frequency in kHz",
+                label: "Frequency in MHz",
                 domain: [1, fMhz * 2],
               },
             }}
@@ -183,8 +185,8 @@ function TeslaCoilCalculator() {
                 sampler: "builtIn", // Use built-in sampling method
                 graphType: "polyline", // Use line plot
                 range: [0, 250], // Define the range of x values
-                graphTitle: "1/4", // Title of the graph
                 grid: true, // Display grid lines
+                color: "red",
               },
               {
                 // fn: "((300/4)/(x*(1+(0.9/4)/((1000*d*x/(D*PI))/D)))^(4/5))*(73*(1000*d*x/(D*PI))/D2)^(5/4)",
@@ -198,6 +200,7 @@ function TeslaCoilCalculator() {
                   const LC = (159*Math.sqrt(0.45 + k)/(N*scope.D/1000))*Math.sqrt(scope.D/C/1000)
                   return LC
                 },
+                color: "blue",
                 scope: {
                   lambda: 4,
                   D,
@@ -207,11 +210,14 @@ function TeslaCoilCalculator() {
                 sampler: "builtIn", // Use built-in sampling method
                 graphType: "polyline", // Use line plot
                 range: [0, 1000], // Define the range of x values
-                graphTitle: "LC", // Title of the graph
                 grid: true, // Display grid lines
               },
             ]}
           />
+          <div>
+            <span className="text-[blue]">LC</span><span className="ml-2 text-[red]">Self Resonance 1/4</span>
+          </div>
+          </>
         )}
       </div>
     </div>
