@@ -24,13 +24,14 @@ export default function UnitInputWithPrefix({
   className,
   disabled,
   placeholder,
+  limitUnits,
 }) {
   const unitValue = MATH.unit(value);
   const incomintUnitWithPrefix = unitValue.formatUnits();
   const incomingUnitNumber = unitValue.toNumber();
   const unitWithPrefixes = useMemo(
-    () => unitPrefixes.map((p) => p + unit),
-    [unit]
+    () => unitPrefixes.map((p) => p + unit).filter(u => limitUnits?.length ? limitUnits.includes(u) : true),
+    [unit, limitUnits]
   );
   const [unitNumber, setUnitNumber] = useState(incomingUnitNumber);
   const [unitIndex, setUnitIndex] = useState(

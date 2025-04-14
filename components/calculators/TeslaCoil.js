@@ -61,7 +61,7 @@ function approxFreq(wireDiameter, coilDiameter, windings, x = 4) {
 function TeslaCoilCalculator() {
   const [wireDiameter, setWireDiameter] = useState("300 um");
   const [coilDiameter, setCoildDiameter] = useState("50 mm");
-  const [frequency, setFrequency] = useState("1 MHz");
+  const [frequency, setFrequency] = useState("1333 kHz");
   const [windings, setWindings] = useState(0)
   
   const wireDiameterUnitValue = math.unit(wireDiameter);
@@ -100,7 +100,6 @@ function TeslaCoilCalculator() {
         lastDiff = diff
       }
     }
-
   }, [d, D, f])
   
   const wireLength = lengthByWindings(windings, D)
@@ -115,6 +114,7 @@ function TeslaCoilCalculator() {
             className="mt-2"
             label="d: Wire ø"
             unit="m"
+            limitUnits={["um", "mm"]}
             value={wireDiameter}
             onChange={setWireDiameter}
           />
@@ -133,6 +133,7 @@ function TeslaCoilCalculator() {
             className="mt-2"
             label="D: Coil ø"
             unit="m"
+            limitUnits={["mm"]}
             value={coilDiameter}
             onChange={setCoildDiameter}
           />
@@ -142,6 +143,7 @@ function TeslaCoilCalculator() {
             className="mt-2"
             unit="Hz"
             label="Frequency"
+            limitUnits={["kHz"]}
             value={frequency || "0 Hz"}
             onChange={setFrequency}
           />
@@ -149,11 +151,14 @@ function TeslaCoilCalculator() {
           {!!windings && (
             <div className="flex flex-col mt-4">
               <InlineMath math={`Approx_{Freq} = ${fMhz.toFixed(3)} Mhz`} />
-              <InlineMath math={`Windings = ${windings}`} />
-              <InlineMath math={`Wire = ${wireLength.toFixed(2)}m`} />
-              <InlineMath math={`Coil = ${(wireLength*d*1000/(D*math.PI)).toFixed(2)}mm`} />
+              <InlineMath math={`Windings = ${windings} turns` } />
+              <InlineMath math={`Wire Length = ${wireLength.toFixed(2)}m`} />
+              <InlineMath math={`Coil Height = ${(wireLength*d*1000/(D*math.PI)).toFixed(2)}mm`} />
             </div>
           )}
+        <div>
+          Attached Capacitance
+        </div>
       </div>
       <div className="w-2/3 ml-2 -mt-4 h-full">
         {frequency && (
@@ -168,6 +173,7 @@ function TeslaCoilCalculator() {
               yAxis: {
                 label: "Frequency in MHz",
                 domain: [1, fMhz * 2],
+                type: "log"
               },
             }}
             data={[
